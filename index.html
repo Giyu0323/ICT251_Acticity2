@@ -5,7 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Student Website</title>
-    \<link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <script src="js/script.js" defer></script>
+    
 </head>
 
 <body>
@@ -37,19 +40,22 @@
 
     <hr>
 
-    <nav>
-        <a href="#about">About Me</a> |
-        <a href="#hobbies">My Hobbies</a> |
-        <a href="#learning">My Learning Plan</a> |
-        <a href="#photos">My Photos</a> |
-        <a href="#media">My Media</a> |
-        <a href="#contact">Contact</a> |
-        <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development"
-           target="_blank"
-           rel="noopener noreferrer">Learn Web Development</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-    </nav>
+   <nav>
+    <a href="#about">About Me</a>
+    <a href="#hobbies">My Hobbies</a>
+    <a href="#learning">My Learning Plan</a>
+    <a href="#photos">My Photos</a>
+    <a href="#media">My Media</a>
+    <a href="#projects">My Projects</a>
+    <a href="#skills">My Skills</a>
+    <a href="#contact">Contact Me</a>
+    <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development"
+       target="_blank"
+       rel="noopener noreferrer">Learn Web Development ↗</a>
+</nav>
+    <button id="theme-toggle" type="button">
+    Switch to Dark Mode
+    </button>
 
     <hr>
 
@@ -79,6 +85,15 @@
                 Here are some of the practical projects I am working on
                 as I develop my programming and web development skills.
            </p>
+           <div class="project-search">
+    <label for="project-search">Search My Projects:</label>
+    <input
+        type="search"
+        id="project-search"
+        placeholder="Search by project or technology..."
+    >
+    <p id="project-search-feedback" aria-live="polite"></p>
+</div>
 
            <div class="projects-container">
               <article class="project-card">
@@ -207,36 +222,50 @@
         </section>
 
         <hr>
+<section id="photos">
+    <h2>My Photos</h2>
+    <p>Here are some photos from my student journey.</p>
+    <p>Select any photo to view it in a larger display.</p>
 
-        <section id="photos">
-            <h2>My Photos</h2>
-            <p>Here are some photos from my student journey.</p>
-
-            <figure>
+    <div class="photo-gallery">
+        <figure>
+            <button class="gallery-image-button" type="button"
+                    aria-label="View Mulungushi admin view photo">
                 <img src="images/MU.jpg"
                      alt="A photo of Mulungushi admin view"
                      width="300">
-                <figcaption>Mulungushi admin view.</figcaption>
-            </figure>
+            </button>
+            <figcaption>Mulungushi admin view.</figcaption>
+        </figure>
 
-            <figure>
+        <figure>
+            <button class="gallery-image-button" type="button"
+                    aria-label="View my study space photo">
                 <img src="images/study_workspace.jpg"
                      alt="My study space with books and a laptop"
                      width="300">
-                <figcaption>My learning environment.</figcaption>
-            </figure>
+            </button>
+            <figcaption>My learning environment.</figcaption>
+        </figure>
 
-            <figure>
+        <figure>
+            <button class="gallery-image-button" type="button"
+                    aria-label="View event preparation photo">
                 <img src="images/mwamba.png"
                      alt="A photo of preparing for an event"
                      width="300">
-                <figcaption>Mwamba Sampa.</figcaption>
-            </figure>
+            </button>
+            <figcaption>Mwamba Sampa.</figcaption>
+        </figure>
+    </div>
 
-                
-
-            
-        </section>
+    <div id="gallery-viewer" class="gallery-viewer" hidden>
+        <button id="gallery-close" type="button"
+                aria-label="Close photo viewer">Close ✕</button>
+        <img id="gallery-large-image" src="" alt="">
+        <p id="gallery-caption"></p>
+    </div>
+</section>
 
         <hr>
 
@@ -246,7 +275,7 @@
             <h3>My Video Introduction</h3>
 
             <video controls width="400">
-                <source src="videos/intro.mp4" type="video/mp4">
+                <source src="videos/intro - Copy.mp4" type="video/mp4">
                 Your browser does not support HTML video.
             </video>
 
@@ -284,7 +313,9 @@
 
             <p>Complete this demonstration contact form.</p>
 
-            <form action="#" method="get">
+            <p><em>Browser demonstration only — no message is sent.</em></p>
+
+            <form id="contact-form" novalidate>
 
                 <p>
                     <label for="name">Full Name:</label><br>
@@ -322,7 +353,18 @@
 
                 <button type="submit">Submit Form</button>
 
-            </form>
+                <p id="form-feedback" aria-live="polite"></p>
+
+                   <div id="form-preview" hidden>
+                   <h3>Message Preview</h3>
+                   <p><strong>Full Name:</strong> <span id="preview-name"></span></p>
+                   <p><strong>Email:</strong> <span id="preview-email"></span></p>
+                   <p><strong>Topic:</strong> <span id="preview-topic"></span></p>
+                   <p><strong>Message:</strong> <span id="preview-message"></span></p>
+                   <p><em>Browser demonstration only — no message is sent.</em></p>
+                   </div>
+
+           </form>
 
             <p>
                 Note: This is a demonstration form only.

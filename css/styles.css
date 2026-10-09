@@ -460,7 +460,8 @@ nav a:hover {
 }
 
 #contact input,
-#contact textarea {
+#contact textarea
+#select {
     width: 100%;
     padding: 12px;
     border: 1px solid #CBD5E1;
@@ -470,7 +471,8 @@ nav a:hover {
 }
 
 #contact input:focus,
-#contact textarea:focus {
+#contact textarea:focus
+#contact select:focus {
     outline: 2px solid #1677F9;
     border-color: #1677F9;
 }
@@ -729,4 +731,191 @@ main {
     .projects-container {
         grid-template-columns: 1fr;
     }
+}
+
+/* Visible keyboard focus for accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid #F59E0B;
+    outline-offset: 3px;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background: #121212;
+    color: #f1f1f1;
+}
+
+body.dark-mode header {
+    background: #1e1e1e;
+    color: #ffffff;
+}
+
+body.dark-mode main section {
+    background: #242424;
+    color: #f1f1f1;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3 {
+    color: #ffffff;
+}
+
+body.dark-mode a {
+    color: #80bfff;
+}
+
+body.dark-mode footer {
+    background: #1e1e1e;
+    color: #ffffff;
+}
+
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+    background: #333333;
+    color: #ffffff;
+    border: 1px solid #777777;
+}
+
+body.dark-mode button {
+    background: #2563eb;
+    color: #ffffff;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+body.dark-mode button:hover {
+    background: #1d4ed8;
+}
+
+/* Theme Switch Button */
+#theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 18px;
+    margin: 12px 0;
+    background: #ffffff;
+    color: #1e3a8a;
+    border: 2px solid #1e3a8a;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#theme-toggle:hover {
+    background: #1e3a8a;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+#theme-toggle:focus-visible {
+    outline: 3px solid #f59e0b;
+    outline-offset: 3px;
+}
+
+/* Button appearance in dark mode */
+body.dark-mode #theme-toggle {
+    background: #242424;
+    color: #fbbf24;
+    border-color: #fbbf24;
+}
+
+body.dark-mode #theme-toggle:hover {
+    background: #fbbf24;
+    color: #1e1e1e;
+}
+
+/* Photo Gallery Viewer */
+.gallery-image-button {
+    display: block;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.gallery-image-button img {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.gallery-image-button:hover img {
+    transform: scale(1.04);
+    opacity: 0.9;
+}
+
+.gallery-image-button:focus-visible {
+    outline: 3px solid #f59e0b;
+    outline-offset: 4px;
+}
+
+.gallery-viewer[hidden] {
+    display: none;
+}
+
+.gallery-viewer {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 24px;
+    background: rgba(0, 0, 0, 0.92);
+}
+
+#gallery-large-image {
+    display: block;
+    max-width: 90%;
+    max-height: 75vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+#gallery-caption {
+    color: #ffffff;
+    text-align: center;
+    font-size: 16px;
+}
+
+#gallery-close {
+    align-self: flex-end;
+    padding: 10px 18px;
+    background: #ffffff;
+    color: #1e3a8a;
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#gallery-close:hover {
+    background: #fbbf24;
+    color: #1e1e1e;
+}
+
+body.dark-mode .gallery-viewer {
+    background: rgba(0, 0, 0, 0.95);
 }
